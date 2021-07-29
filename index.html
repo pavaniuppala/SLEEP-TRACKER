@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep-Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <div id="logo">
+      <img src="icon.png" style="border-radius: 50%" alt="sleeptracker.com" />
+      <!-- <p>Sleep Tracker</p> -->
+    </div>
+
+    <div class="nad">SLEEP-TRACKER</div>
+
+    <a class="nad" href="music.html" style="text-decoration:none;">
+      SLEEP-MUSIC
+    </a>
+  </nav>
+
+  <header>
+    <video playsinline autoplay muted loop>
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+
+    <div class="content">
+      <h1 class="text1">BETTER SLEEP.</h1>
+      <h1 class="text1">BETTER HEALTH.</h1>
+      <p class="text2">
+        Sleep-Tracker tracks your daily naps and help you to improve your
+        sleeping patterns!!
+      </p>
+    </div>
+  </header>
+
+  <section id="home" class="login">
+    <img src="i2.jpg" alt="bg" />
+
+    <div class="container">
+      <div class="title">Registration</div>
+
+      <div class="content">
+        <form id="form" action="form.html" method="POST" onsubmit="return results()">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Full Name*</span>
+              <input type="text" id="t1" placeholder="Enter your name" required />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Email*</span>
+              <input type="text" id="t2" placeholder="Enter your email " required />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Age*</span>
+              <input type="number" id="t3" placeholder="Enter your Age" min="1" max="130" step="1" required />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Heart Rate*</span>
+              <input type="number" id="t4" placeholder="Enter your Heart Rate" min="55" max="180" step="1" required />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Time-Slept*</span>
+              <input type="number" min="1" id="t5" required />
+            </div>
+          </div>
+
+          <div class="gender-details">
+            <input type="radio" name="gender" id="dot-1" />
+            <input type="radio" name="gender" id="dot-2" />
+            <input type="radio" name="gender" id="dot-3" />
+            <span class="gender-title">Gender</span>
+
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="button">
+            <input id="submit" type="submit" value="Register" />
+            <!-- <a href="page2.html">Register</a> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="center">
+      Copyright &copy; www.sleeptracker.com. All rights reserved!
+    </div>
+  </footer>
+
+  <script>
+    function results() {
+      var Name = document.getElementById("t1").value;
+      var Age = document.getElementById("t3").value;
+      var Hrate = document.getElementById("t4").value;
+      var Time = document.getElementById("t5").value;
+
+      if (Age > 6 && Age <= 15) {
+        if (Hrate >= 70 && Hrate <= 100) {
+          if (Time >= 7) {
+            document.write(
+              '<h1 style="text-align:center ; margin-top:100px ;font-family:cursive;font-weight:bold;">YOU HAD ENOUGH SLEEP</h1>'
+            );
+          } else if (Time < 7) {
+            var sleepneed = 7 - parseInt(Time);
+            document.write(
+              '<h1 style="text-align:center; margin-top:100px ; font-family:cursive;font-weight:bold;">YOU NEED A MINIMUM OF ' +
+              sleepneed +
+              "HOURS OF SLEEP</h1>"
+            );
+          }
+        } else if (Hrate > 100) {
+          document.write(
+            '<h1 style="text - align: center; margin-top:100px; font - family: cursive; font - weight: bold;">YOU ARE TIRED ,NEED MORE REST</h1>'
+          );
+        }
+      } else if (Age >= 16 && Age <= 40) {
+        if (Hrate >= 70 && Hrate <= 100) {
+          if (Time >= 9) {
+            document.write(
+              '<h1 style="text-align:center; margin-top:100px;font-family:cursive;font-weight:bold;">YOU HAD ENOUGH SLEEP</h1>'
+            );
+          } else if (Time < 9) {
+            var sleepneed = 9 - parseInt(Time);
+            document.write(
+              '<h1 style="text-align:center; margin-top:100px;font-family:cursive;font-weight:bold;">YOU NEED A MINIMUM OF ' +
+              sleepneed +
+              "HOURS OF SLEEP</h1>"
+            );
+          }
+        } else if (Hrate > 100) {
+          document.write(
+            '<h1 style="text - align: center; margin-top:100px; font - family: cursive; font - weight: bold;">YOU ARE TIRED ,NEED MORE REST</h1>'
+          );
+        }
+      } else {
+        if (Hrate >= 70 && Hrate <= 100) {
+          if (Time >= 11) {
+            document.write(
+              '<h1 style="text-align:center; margin-top:100px;font-family:cursive;font-weight:bold;">YOU HAD ENOUGH SLEEP</h1>'
+            );
+          } else if (Time < 11) {
+            var sleepneed = 11 - parseInt(Time);
+            document.write(
+              '<h1 style="text-align:center; margin-top:100px;font-family:cursive;font-weight:bold;">YOU NEED A MINIMUM OF ' +
+              sleepneed +
+              "HOURS OF SLEEP</h1>"
+            );
+          }
+        } else if (Hrate > 100) {
+          document.write(
+            '<h1 style="text - align: center; f margin-top:100px ;font - family: cursive; font - weight: bold;">YOU ARE TIRED ,NEED MORE REST</h1>'
+          );
+        }
+      }
+
+      document.write(
+        '<table border="1" style="width:100%;border-collapse:collapse;margin-top:80px">'
+      );
+      document.write("<tr>");
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;"> Name </td>'
+      );
+
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;"> Age </td>'
+      );
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;"> Hrate(BPM) </td>'
+      );
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;"> Time </td>'
+      );
+      document.write("</tr>");
+      document.write("<tr>");
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;">' +
+        Name +
+        "</td>"
+      );
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;">' +
+        Age +
+        "</td>"
+      );
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;">' +
+        Hrate +
+        "</td>"
+      );
+      document.write(
+        '<td style="text-align:center;padding-top:10px;padding-bottom:10px;">' +
+        Time +
+        "</td>"
+      );
+      document.write("</tr>");
+      document.write("</table> <br><br><br>");
+
+      document.body.style.backgroundColor = "lightblue";
+
+      document.write(
+        '<a href="index.html" style="border:2px solid black; border-radius:10px; text-decoration:none; color:black;  padding:10px ; ">BACK</a> '
+      );
+
+      // document.write(
+      //   '<div style=" display:block ; position:relative;" class="row">'
+      // );
+      // document.write(
+      //   '<div style=" margin-top:50px; margin-left:70px;width:400px ; height:500px ; border : 1px solid black;" class = "col-4" >'
+      // );
+      // document.write(
+      //   '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBeneQpQI0jH--IUOxxDYJkCePT4jD4C9Nw&usqp=CAU" width="400px" '
+      // );
+      // // document.write(
+      // //   '<h1 style="text - align: center; font - weight: bold;">Perks of good sleep </h1>'
+      // // );
+      // // document.write("<h5>lllll</h5>");
+      // // document.write(
+      // //   '<a href="https://www.webmd.com/sleep-disorders/benefits-sleep-more" class="btn btn-primary">Perks</a>'
+      // // );
+      // document.write("</div>");
+
+      // document.write(
+      //   '<div style=" margin-top:20px; margin-left:200px;width:400px ; height:500px ; border : 1px solid black;" class="col-4">'
+      // );
+      // document.write(
+      //   '<img src=" https://www.deliciousmagazine.co.uk/wp-content/uploads/2018/10/food-to-help-you-sleep.jpg" width="400px" '
+      // );
+
+      // document.write("</div>");
+
+      // document.write("</div>");
+
+      document.write(
+        '<div style=" postion:relative ; display:inline; margin-left:18vw ;margin-top:10vw ;width:400px ; height:500px ;" class = "col-4" >'
+      );
+      document.write(
+        '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBeneQpQI0jH--IUOxxDYJkCePT4jD4C9Nw&usqp=CAU" width="400px" height="350px" margin-right="20px" >'
+      );
+      document.write(
+        '<img src="https://i.pinimg.com/originals/9b/c0/33/9bc0332fe3a483ae8471b599e2037065.jpg" width="400px" height="350px" >'
+      );
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
